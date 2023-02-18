@@ -1,0 +1,46 @@
+/* Get a fancy font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto Slab', sans-serif;
+}
+
+.js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {
+  background: #b20e10;
+  border-top: 1px solid #b20e10;
+  border-bottom: 1px solid #b20e10;
+}
+
+.js-irs-1 .irs-single, .js-irs-1 .irs-bar-edge, .js-irs-1 .irs-bar {
+  background: #b20e10;
+  border-top: 1px solid #b20e10;
+  border-bottom: 1px solid #b20e10;
+}
+
+.js-irs-2 .irs-single, .js-irs-2 .irs-bar-edge, .js-irs-2 .irs-bar {
+  background: #b20e10;
+  border-top: 1px solid #b20e10;
+  border-bottom: 1px solid #b20e10;
+}
+
+.irs-from, .irs-to, .irs-single {
+  background: #b20e10;
+}
+
+#sample_button{ 
+  background-color: lightgrey;
+  color: black;
+  border: none;
+}
+
+#sample_button:hover{
+  background-color: #b20e10;
+  color: white;
+  border: none;
+}
+  
