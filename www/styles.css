@@ -24,13 +24,17 @@ a {
   background: #b20e10;
 }
 
-#sample_button{
+#ttests-ttest_output {
+  font-size: 16px;
+}
+
+#sample_button {
   background-color: lightgrey;
   color: black;
   border: none;
 }
 
-#sample_button:hover{
+#sample_button:hover {
   background-color: #b20e10;
   color: white;
   border: none;
