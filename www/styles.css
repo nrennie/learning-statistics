@@ -10,6 +10,10 @@ h1, h2, h3 {
   font-family: 'Roboto Slab', sans-serif;
 }
 
+a {
+  color: #b20e10 !important;
+}
+
 .irs-single, .irs-bar-edge, .irs-bar {
   background: #b20e10 !important;
   border-top: 1px solid #b20e10 !important;
