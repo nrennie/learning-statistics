@@ -12,6 +12,7 @@ A {shiny} app to explore introductory statistical concepts. This currently inclu
 
 * Distributions
   * Normal
+  * Exponential
   
 * T-tests
   * One sample t-test

@@ -5,8 +5,9 @@ moduleDistributions <- function(id) {
              column(6,
                     align = "center",
                     wellPanel(
-                      tabsetPanel(
+                      tabsetPanel(id = ns("dist_tabs"),
                         tabPanel("Normal distribution",
+                                 br(),
                                  shiny::sliderInput(ns("mean"),
                                                     label = "Choose a mean:",
                                                     min = -10,
@@ -17,6 +18,14 @@ moduleDistributions <- function(id) {
                                                     label = "Choose a variance:",
                                                     min = 0.1,
                                                     max = 10,
+                                                    value = 1)),
+                        tabPanel("Exponential distribution",
+                                 br(),
+                                 shiny::sliderInput(ns("rate"),
+                                                    label = "Choose a rate:",
+                                                    min = 0.1,
+                                                    max = 5,
+                                                    step = 0.1,
                                                     value = 1))
                       ),
                       style = "background: white;")
@@ -35,17 +44,7 @@ distributionsServer <- function(id) {
     function(input, output, session) {
 
       output$histogram <- renderPlot({
-        ggplot(data = data.frame(x = seq(-20, 20, by = 0.001))) +
-          geom_area(stat = "function",
-                    fun = dnorm,
-                    args = list(mean = input$mean,
-                                sd = sqrt(input$variance),
-                                log = FALSE),
-                    colour = "black",
-                    fill = "#b20e10",
-                    linewidth = 0.2,
-                    xlim = c(-20, 20),
-                    alpha = 0.7) +
+        g <- ggplot(data = data.frame(x = seq(-20, 20, by = 0.001))) +
           labs(x = "X", y = "Density") +
           xlim(-20, 20) +
           ylim(0, 1.5) +
@@ -61,6 +60,33 @@ distributionsServer <- function(id) {
                                           family = "roboto",
                                           size = 20,
                                           margin = margin(b = 10)))
+
+        if (input$dist_tabs == "Normal distribution") {
+          p = g +
+            geom_area(stat = "function",
+                      fun = dnorm,
+                      args = list(mean = input$mean,
+                                  sd = sqrt(input$variance),
+                                  log = FALSE),
+                      colour = "black",
+                      fill = "#b20e10",
+                      linewidth = 0.2,
+                      xlim = c(-20, 20),
+                      alpha = 0.7)
+        }
+        if (input$dist_tabs == "Exponential distribution") {
+          p = g +
+            geom_area(stat = "function",
+                      fun = dexp,
+                      args = list(rate = input$rate,
+                                  log = FALSE),
+                      colour = "black",
+                      fill = "#b20e10",
+                      linewidth = 0.2,
+                      xlim = c(-20, 20),
+                      alpha = 0.7)
+        }
+        return(p)
       })
 
     }
