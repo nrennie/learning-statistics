@@ -10,29 +10,17 @@ h1, h2, h3 {
   font-family: 'Roboto Slab', sans-serif;
 }
 
-.js-irs-0 .irs-single, .js-irs-0 .irs-bar-edge, .js-irs-0 .irs-bar {
-  background: #b20e10;
-  border-top: 1px solid #b20e10;
-  border-bottom: 1px solid #b20e10;
-}
-
-.js-irs-1 .irs-single, .js-irs-1 .irs-bar-edge, .js-irs-1 .irs-bar {
-  background: #b20e10;
-  border-top: 1px solid #b20e10;
-  border-bottom: 1px solid #b20e10;
-}
-
-.js-irs-2 .irs-single, .js-irs-2 .irs-bar-edge, .js-irs-2 .irs-bar {
-  background: #b20e10;
-  border-top: 1px solid #b20e10;
-  border-bottom: 1px solid #b20e10;
+.irs-single, .irs-bar-edge, .irs-bar {
+  background: #b20e10 !important;
+  border-top: 1px solid #b20e10 !important;
+  border-bottom: 1px solid #b20e10 !important;
 }
 
 .irs-from, .irs-to, .irs-single {
   background: #b20e10;
 }
 
-#sample_button{ 
+#sample_button{
   background-color: lightgrey;
   color: black;
   border: none;
@@ -43,4 +31,3 @@ h1, h2, h3 {
   color: white;
   border: none;
 }
-  

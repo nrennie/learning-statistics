@@ -11,6 +11,7 @@ library(here)
 # load modules
 source(paste0(here::here(), "/moduleDescriptive.R"))
 source(paste0(here::here(), "/moduleDistributions.R"))
+source(paste0(here::here(), "/moduleRegression.R"))
 
 # fonts
 font_add_google("Roboto", "roboto")

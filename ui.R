@@ -3,7 +3,9 @@ ui <- navbarPage(title = "Learn statistics!",
                  # Descriptive statistics tab
                  moduleDescriptive("descriptive"),
                  # Distributions tab
-                 moduleDistributions("distributions")
+                 moduleDistributions("distributions"),
+                 # Regression tab
+                 moduleRegression("regression")
                  )
 
 ui
