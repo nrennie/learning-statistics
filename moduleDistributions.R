@@ -5,18 +5,20 @@ moduleDistributions <- function(id) {
              column(6,
                     align = "center",
                     wellPanel(
-                      shiny::h3("Normal distribution"),
-                      shiny::sliderInput(ns("mean"),
-                                         label = "Choose a mean:",
-                                         min = -10,
-                                         max = 10,
-                                         step = 0.1,
-                                         value = 0),
-                      shiny::sliderInput(ns("variance"),
-                                         label = "Choose a variance:",
-                                         min = 0.1, 
-                                         max = 10,
-                                         value = 1),
+                      tabsetPanel(
+                        tabPanel("Normal distribution",
+                                 shiny::sliderInput(ns("mean"),
+                                                    label = "Choose a mean:",
+                                                    min = -10,
+                                                    max = 10,
+                                                    step = 0.1,
+                                                    value = 0),
+                                 shiny::sliderInput(ns("variance"),
+                                                    label = "Choose a variance:",
+                                                    min = 0.1,
+                                                    max = 10,
+                                                    value = 1))
+                      ),
                       style = "background: white;")
              ),
              column(6,
@@ -31,7 +33,7 @@ distributionsServer <- function(id) {
   moduleServer(
     id,
     function(input, output, session) {
-      
+
       output$histogram <- renderPlot({
         ggplot(data = data.frame(x = seq(-20, 20, by = 0.001))) +
           geom_area(stat = "function",
@@ -49,11 +51,11 @@ distributionsServer <- function(id) {
           ylim(0, 1.5) +
           coord_cartesian(expand = FALSE) +
           theme_minimal() +
-          theme(legend.position = "none", 
+          theme(legend.position = "none",
                 legend.title = element_blank(),
                 plot.background = element_rect(fill = "transparent", colour = "transparent"),
                 panel.background = element_rect(fill = "transparent", colour = "transparent"),
-                plot.margin = margin(10, 10, 10, 10), 
+                plot.margin = margin(10, 10, 10, 10),
                 plot.title = element_text(face = "bold",
                                           hjust = 0.5,
                                           family = "roboto",
