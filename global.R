@@ -11,6 +11,7 @@ library(here)
 # load modules
 source(paste0(here::here(), "/moduleDescriptive.R"))
 source(paste0(here::here(), "/moduleDistributions.R"))
+source(paste0(here::here(), "/moduleConfidence.R"))
 source(paste0(here::here(), "/moduleRegression.R"))
 source(paste0(here::here(), "/moduleTtest.R"))
 
@@ -24,7 +25,7 @@ set.seed(1234)
 population_df = tibble(ID = 1:200,
                        x = rep(1:20, times = 10),
                        y = rep(1:10, each = 20),
-                       Value = rpois(200, 50))
+                       Value = rnorm(200, 50, 12))
 
 # mode function
 mode_avg <- function(data) {
